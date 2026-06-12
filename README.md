@@ -208,7 +208,7 @@ copies or substantial portions of the Software.
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/flight-sim/issues)
+- **Issues**: [GitHub Issues](https://github.com/wquu351/godot-combat-flightsim/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/yourusername/flight-sim/discussions)
 - **Godot Forums**: Search for "simplified flightsim"
 
