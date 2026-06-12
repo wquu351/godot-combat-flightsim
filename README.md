@@ -1,3 +1,7 @@
+## Gameplay Screenshots
+![Gameplay 1](screenshots/1.png)
+![Gameplay 2](screenshots/2.png)
+
 Simplified Flight Sim - Extended Edition
 A lightweight flight simulation framework based on Godot 4.x, supporting aircraft, helicopters and spacecraft.
 Project Origin
