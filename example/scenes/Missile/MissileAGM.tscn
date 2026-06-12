@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://example/scenes/Missile/missile.gd" id="1_script"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_missile"]
+radius = 0.3
+height = 2.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_missile"]
+radius = 0.3
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_missile"]
+albedo_color = Color(0.8, 0.6, 0.2, 1)
+emission_enabled = true
+emission = Color(1, 0.5, 0, 1)
+
+[node name="GuidedMissileAGM" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_script")
+missile_type = "agm"
+speed = 60.0
+max_turn_rate = 120.0
+explosion_damage = 300.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_missile")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_missile")
+surface_material_override/0 = SubResource("StandardMaterial3D_missile")

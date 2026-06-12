@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://example/scenes/AirEnemy/bullet.gd" id="1_script"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bullet"]
+radius = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_bullet"]
+radius = 0.15
+height = 0.3
+
+[node name="Bullet" type="CharacterBody3D"]
+script = ExtResource("1_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bullet")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_bullet")

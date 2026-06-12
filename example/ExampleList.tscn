@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://btojausi3o6fu"]
+
+[ext_resource type="Script" path="res://example/label_example_1.gd" id="1_ergeq"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends Control
+
+
+
+func _on_BtnExample1_pressed():
+	get_tree().change_scene_to_file(\"res://example/Example1_Simple.tscn\")
+
+
+func _on_BtnRepo_pressed():
+	OS.shell_open(\"https://github.com/fbcosentino/godot-simplified-flightsim\")
+"
+
+[node name="ExampleList" type="Control" unique_id=2065931387]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("1")
+
+[node name="BtnExample1" type="Button" parent="." unique_id=2107844614]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 19.0
+offset_right = 293.0
+offset_bottom = 94.0
+text = "Example 1 - Simple"
+
+[node name="LabelExample1" type="Label" parent="BtnExample1" unique_id=1401515401]
+layout_mode = 0
+offset_left = 279.0
+offset_top = -6.0
+offset_right = 752.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 12
+text = "Single Engine
+Single fuel tank - always connected
+Steering, Flaps, landing gear
+Basic instruments"
+script = ExtResource("1_ergeq")
+
+[node name="BtnRepo" type="Button" parent="." unique_id=1136436503]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -356.0
+offset_bottom = 30.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 14
+text = "github.com/fbcosentino/godot-simplified-flightsim"
+flat = true
+
+[connection signal="pressed" from="BtnExample1" to="." method="_on_BtnExample1_pressed"]
+[connection signal="pressed" from="BtnRepo" to="." method="_on_BtnRepo_pressed"]

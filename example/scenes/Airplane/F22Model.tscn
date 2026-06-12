@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cng6opp2xohcg"]
+
+[ext_resource type="Script" uid="uid://br5wmfb6btjdp" path="res://example/scenes/Airplane/f22_model.gd" id="1"]
+
+[node name="F22Model" type="Node3D" unique_id=114967988]
+script = ExtResource("1")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://example/scenes/Missile/missile.gd" id="1_script"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_missile"]
+radius = 0.3
+height = 2.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_missile"]
+radius = 0.3
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_missile"]
+albedo_color = Color(1, 0.8, 0.2, 1)
+emission_enabled = true
+emission = Color(1, 0.5, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_trail"]
+top_radius = 0.15
+bottom_radius = 0.05
+height = 1.5
+
+[node name="GuidedMissile" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_missile")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_missile")
+surface_material_override/0 = SubResource("StandardMaterial3D_missile")
+
+[node name="Trail" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 1.0)
+mesh = SubResource("CylinderMesh_trail")
